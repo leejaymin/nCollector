@@ -61,15 +61,29 @@ ADDED from AndroidManifest.xml:40:9
 		ADDED from AndroidManifest.xml:42:46
 	android:name
 		ADDED from AndroidManifest.xml:41:13
-activity#com.example.android.pingme.ResultActivity
-ADDED from AndroidManifest.xml:44:9
+service#com.example.android.pingme.NLService
+ADDED from AndroidManifest.xml:45:9
 	android:label
 		ADDED from AndroidManifest.xml:46:13
-	android:excludeFromRecents
-		ADDED from AndroidManifest.xml:49:13
-	android:taskAffinity
+	android:permission
 		ADDED from AndroidManifest.xml:48:13
 	android:name
-		ADDED from AndroidManifest.xml:45:13
-	android:launchMode
 		ADDED from AndroidManifest.xml:47:13
+intent-filter#android.service.notification.NotificationListenerService
+ADDED from AndroidManifest.xml:49:13
+action#android.service.notification.NotificationListenerService
+ADDED from AndroidManifest.xml:50:17
+	android:name
+		ADDED from AndroidManifest.xml:51:21
+activity#com.example.android.pingme.ResultActivity
+ADDED from AndroidManifest.xml:55:9
+	android:label
+		ADDED from AndroidManifest.xml:57:13
+	android:excludeFromRecents
+		ADDED from AndroidManifest.xml:60:13
+	android:taskAffinity
+		ADDED from AndroidManifest.xml:59:13
+	android:name
+		ADDED from AndroidManifest.xml:56:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:58:13

@@ -45,6 +45,14 @@
             android:enabled="true"
             android:label="PingServiceLabel" >
         </service>
+        <service
+            android:name="com.example.android.pingme.NLService"
+            android:label="@string/serviceLabel"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
 
         <activity
             android:name="com.example.android.pingme.ResultActivity"

@@ -28,6 +28,7 @@
     <string name="reminder_label">Reminder Text</string>
     <string name="reminder_text">Don\'t forget!</string>
     <string name="seconds_default">10</string>
+    <string name="serviceLabel">NotificationService</string>
     <string name="sleep_error">Sleep failure</string>
     <string name="snooze">Snooze</string>
     <string name="snoozing">Snoozing!</string>

@@ -24,6 +24,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="notification">Ping Notification</string>
     <string name="label">Ping Me</string>
+    <string name="serviceLabel">NotificationService</string>
 
     <!--  Buttons -->
     <string name="ping">Ping!</string>

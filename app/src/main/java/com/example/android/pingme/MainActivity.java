@@ -15,7 +15,11 @@
 package com.example.android.pingme;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
@@ -23,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -31,10 +36,19 @@ public class MainActivity extends Activity {
     private Intent mServiceIntent;
     private Spinner spinner;
     private int notificationPriority;
+    private TextView txtView;
+    private NotificationReceiver nReceiver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtView = (TextView) findViewById(R.id.textView);
+        nReceiver = new NotificationReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.example.android.pingme.NOTIFICATION_LISTENER_EXAMPLE");
+        registerReceiver(nReceiver,filter);
 
         Spinner spinner = (Spinner) findViewById(R.id.priority_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -73,6 +87,12 @@ public class MainActivity extends Activity {
         mServiceIntent = new Intent(getApplicationContext(), PingService.class);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(nReceiver);
+    }
+
     /*
      * Gets the values the user entered and adds them to the intent that will be
      * used to launch the IntentService that runs the timer and issues the
@@ -81,28 +101,59 @@ public class MainActivity extends Activity {
     public void onPingClick(View v) {
         int seconds;
 
-        // Gets the reminder text the user entered.
-        EditText msgText = (EditText) findViewById(R.id.edit_reminder);
-        String message = msgText.getText().toString();
-        //String priority = spinner.
-        mServiceIntent.putExtra(CommonConstants.NOTIFICATION_PRIORITY, notificationPriority);
-        mServiceIntent.putExtra(CommonConstants.EXTRA_MESSAGE, message);
-        mServiceIntent.setAction(CommonConstants.ACTION_PING);
-        Toast.makeText(this, R.string.timer_start, Toast.LENGTH_SHORT).show();
-
-        // The number of seconds the timer should run.
-        EditText editText = (EditText)findViewById(R.id.edit_seconds);
-        String input = editText.getText().toString();
-
-        if(input == null || input.trim().equals("")){
-            // If user didn't enter a value, sets to default.
-            seconds = R.string.seconds_default;
-        } else {
-            seconds = Integer.parseInt(input);
+        if(v.getId() == R.id.btnCreateNotify){
+            NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationCompat.Builder ncomp = new NotificationCompat.Builder(this);
+            ncomp.setContentTitle("My Notification");
+            ncomp.setContentText("Notification Listener Service Example");
+            ncomp.setTicker("Notification Listener Service Example");
+            ncomp.setSmallIcon(R.drawable.ic_launcher);
+            ncomp.setAutoCancel(true);
+            nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
-        int milliseconds = (seconds * 1000);
-        mServiceIntent.putExtra(CommonConstants.EXTRA_TIMER, milliseconds);
-        // Launches IntentService "PingService" to set timer.
-        startService(mServiceIntent);
+        else if(v.getId() == R.id.btnClearNotify){
+            Intent i = new Intent("com.example.android.pingme.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
+            i.putExtra("command","clearall");
+            sendBroadcast(i);
+        }
+        else if(v.getId() == R.id.btnListNotify){
+            Intent i = new Intent("com.example.android.pingme.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
+            i.putExtra("command","list");
+            sendBroadcast(i);
+        }
+        else if(v.getId() == R.id.ping_button) {
+            // Gets the reminder text the user entered.
+            EditText msgText = (EditText) findViewById(R.id.edit_reminder);
+            String message = msgText.getText().toString();
+            //String priority = spinner.
+            mServiceIntent.putExtra(CommonConstants.NOTIFICATION_PRIORITY, notificationPriority);
+            mServiceIntent.putExtra(CommonConstants.EXTRA_MESSAGE, message);
+            mServiceIntent.setAction(CommonConstants.ACTION_PING);
+            Toast.makeText(this, R.string.timer_start, Toast.LENGTH_SHORT).show();
+
+            // The number of seconds the timer should run.
+            EditText editText = (EditText) findViewById(R.id.edit_seconds);
+            String input = editText.getText().toString();
+
+            if (input == null || input.trim().equals("")) {
+                // If user didn't enter a value, sets to default.
+                seconds = R.string.seconds_default;
+            } else {
+                seconds = Integer.parseInt(input);
+            }
+            int milliseconds = (seconds * 1000);
+            mServiceIntent.putExtra(CommonConstants.EXTRA_TIMER, milliseconds);
+            // Launches IntentService "PingService" to set timer.
+            startService(mServiceIntent);
+        }
+    }
+
+    class NotificationReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String temp = intent.getStringExtra("notification_event") + "\n" + txtView.getText();
+            txtView.setText(temp);
+        }
     }
 }

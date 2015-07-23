@@ -20,8 +20,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="4"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
@@ -41,6 +41,17 @@
             android:name="PingService"
             android:label="PingServiceLabel" android:enabled="true">
         </service>
+
+        <service
+            android:label="@string/serviceLabel"
+            android:name=".NLService"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action
+                    android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name="ResultActivity"
             android:label="Take Action"
