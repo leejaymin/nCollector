@@ -94,6 +94,8 @@ public final class R {
         public static final int timer_start=0x7f070020;
         public static final int title_activity_main=0x7f070021;
         public static final int title_activity_settings=0x7f070022;
+        public static final int wake_acquire=0x7f070023;
+        public static final int wake_release=0x7f070024;
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;

@@ -19,6 +19,8 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -33,7 +35,8 @@ public class PingService extends IntentService {
     private int mMillis;
     private int mPrority;
     NotificationCompat.Builder builder;
-    
+    PowerManager powerManager;
+    WakeLock wakeLock;
 
     public PingService() {
 
@@ -146,6 +149,10 @@ public class PingService extends IntentService {
  // Starts the timer according to the number of seconds the user specified.
     private void startTimer(int millis) {
         Log.d(CommonConstants.DEBUG_TAG, getString(R.string.timer_start));
+        powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"WatingForNotiGeneration");
+        wakeLock.acquire();
+        Log.d(CommonConstants.DEBUG_TAG, getString(R.string.wake_acquire));
         try {
             Thread.sleep(millis);
 
@@ -153,6 +160,8 @@ public class PingService extends IntentService {
             Log.d(CommonConstants.DEBUG_TAG, getString(R.string.sleep_error));
         }
         Log.d(CommonConstants.DEBUG_TAG, getString(R.string.timer_finished));
+        wakeLock.release();
+        Log.d(CommonConstants.DEBUG_TAG, getString(R.string.wake_release));
         issueNotification(builder);
     }
 }

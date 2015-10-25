@@ -71,6 +71,8 @@ int string timer_finished 0x7f07001f
 int string timer_start 0x7f070020
 int string title_activity_main 0x7f070021
 int string title_activity_settings 0x7f070022
+int string wake_acquire 0x7f070023
+int string wake_release 0x7f070024
 int style AppTheme 0x7f080000
 int style NotificationText 0x7f080001
 int style NotificationTitle 0x7f080002

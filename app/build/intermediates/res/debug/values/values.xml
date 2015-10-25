@@ -87,6 +87,10 @@
     <!-- From: file:/root/StudioProjects/PingMe/app/src/main/res/values/strings_activity_settings.xml -->
     <eat-comment/>
     <string name="title_activity_settings">Settings</string>
+    <!-- From: file:/root/StudioProjects/PingMe/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="wake_acquire">WakeLock Acquire.</string>
+    <string name="wake_release">WakeLock Release.</string>
     <!-- From: file:/root/StudioProjects/PingMe/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>

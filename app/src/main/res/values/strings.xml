@@ -45,6 +45,8 @@
     <string name="timer_start">Setting the timer</string>
     <string name="sleep_error">Sleep failure</string>
     <string name="timer_finished">Timer finished.</string>
+    <string name="wake_acquire">WakeLock Acquire.</string>
+    <string name="wake_release">WakeLock Release.</string>
 
     <string-array name="priority_array">
         <item>MAX</item>
