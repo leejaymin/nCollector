@@ -33,6 +33,7 @@ public class PingService extends IntentService {
     private int mMillis;
     private int mPrority;
     NotificationCompat.Builder builder;
+    
 
     public PingService() {
 

@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -155,5 +157,28 @@ public class MainActivity extends Activity {
             String temp = intent.getStringExtra("notification_event") + "\n" + txtView.getText();
             txtView.setText(temp);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, MENU_PREFERENCES, 0, "Options");
+        menu.add(0, APPLIST, 0, "BlockApp");
+        return true;
+    }
+
+    private static final int MENU_PREFERENCES = 0;
+    private static final int APPLIST = 1;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case MENU_PREFERENCES:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case APPLIST:
+                Intent intent = new Intent(this, AppChoiceView.class);
+                startActivityForResult(intent, 0);
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

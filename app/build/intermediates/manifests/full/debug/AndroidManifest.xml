@@ -20,10 +20,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="4"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:description="@string/app_description"
@@ -60,6 +64,14 @@
             android:label="Take Action"
             android:launchMode="singleTask"
             android:taskAffinity="" />
+        <activity
+            android:name="com.example.android.pingme.AppChoiceView"
+            android:label="AppList" >
+        </activity>
+        <activity
+            android:name="com.example.android.pingme.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>

@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/root/Android_Application_Tools/android-sdk-linux_r24/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jar="/root/Android_Application_Tools/android-sdk-linux_r24/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-0f17588a2ae13e35ab18b410626d4ad4fc9bfcf3.jar" />
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-fa371389a8698a2b50dcc072a6567d01629d384e.jar" />
     </item>
     <item
-        jar="/root/StudioProjects/PingMe/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/libs/internal_impl-21.0.0.jar"
+        jar="/root/StudioProjects/PingMe/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-47e46c33f3c7a6548c2b375635af54830d6a5baf.jar" />
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/classes-d49ebd0962c047ce752038332be98103ffd6c9c9.jar" />
     </item>
     <item
-        jar="/root/StudioProjects/PingMe/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/classes.jar"
+        jar="/root/StudioProjects/PingMe/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
-        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/classes-4a64d7fb6339a1655cd8726072a86ab8a5000e12.jar" />
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/root/StudioProjects/PingMe/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-03c1fc262c7067860adb17ca51dfa2f9d8ca316a.jar" />
     </item>
 
 </items>

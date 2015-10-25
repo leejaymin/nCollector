@@ -9,14 +9,18 @@ package com.example.android.pingme;
 
 public final class R {
     public static final class array {
-        public static final int priority_array=0x7f050000;
+        public static final int pref_example_list_titles=0x7f060000;
+        public static final int pref_example_list_values=0x7f060001;
+        public static final int pref_sync_frequency_titles=0x7f060002;
+        public static final int pref_sync_frequency_values=0x7f060003;
+        public static final int priority_array=0x7f060004;
     }
     public static final class attr {
     }
     public static final class dimen {
-        public static final int padding_large=0x7f040000;
-        public static final int padding_medium=0x7f040001;
-        public static final int padding_small=0x7f040002;
+        public static final int padding_large=0x7f050000;
+        public static final int padding_medium=0x7f050001;
+        public static final int padding_small=0x7f050002;
     }
     public static final class drawable {
         public static final int ic_action_search=0x7f020000;
@@ -25,50 +29,81 @@ public final class R {
         public static final int ic_stat_ic_stat_snooze=0x7f020003;
         public static final int ic_stat_notification=0x7f020004;
         public static final int ic_stat_snooze=0x7f020005;
+        public static final int icon=0x7f020006;
     }
     public static final class id {
-        public static final int btnClearNotify=0x7f080006;
-        public static final int btnCreateNotify=0x7f080008;
-        public static final int btnListNotify=0x7f080009;
-        public static final int dismiss_button=0x7f08000b;
-        public static final int edit_reminder=0x7f080003;
-        public static final int edit_seconds=0x7f080001;
-        public static final int ping_button=0x7f080004;
-        public static final int priority_spinner=0x7f080005;
-        public static final int reminder_view=0x7f080002;
-        public static final int result_message=0x7f08000a;
-        public static final int seconds_view=0x7f080000;
-        public static final int snooze_button=0x7f08000c;
-        public static final int textView=0x7f080007;
+        public static final int Traffic_RunProcessText=0x7f090012;
+        public static final int btnClearNotify=0x7f090006;
+        public static final int btnCreateNotify=0x7f090008;
+        public static final int btnListNotify=0x7f090009;
+        public static final int dismiss_button=0x7f09000b;
+        public static final int edit_reminder=0x7f090003;
+        public static final int edit_seconds=0x7f090001;
+        public static final int ping_button=0x7f090004;
+        public static final int priority_spinner=0x7f090005;
+        public static final int reminder_view=0x7f090002;
+        public static final int result_message=0x7f09000a;
+        public static final int seconds_view=0x7f090000;
+        public static final int snooze_button=0x7f09000c;
+        public static final int textView=0x7f090007;
+        public static final int traffic_appicon=0x7f09000e;
+        public static final int traffic_application_name=0x7f09000f;
+        public static final int traffic_pid=0x7f09000d;
+        public static final int traffic_rx=0x7f090010;
+        public static final int traffic_tx=0x7f090011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_result=0x7f030001;
+        public static final int my_app_row=0x7f030002;
+        public static final int traffic_list=0x7f030003;
     }
     public static final class string {
-        public static final int app_description=0x7f060000;
-        public static final int app_name=0x7f060001;
-        public static final int dismiss=0x7f060002;
-        public static final int done_snoozing=0x7f060003;
-        public static final int label=0x7f060004;
-        public static final int menu_settings=0x7f060005;
-        public static final int notification=0x7f060006;
-        public static final int ping=0x7f060007;
-        public static final int ping_text=0x7f060008;
-        public static final int reminder_label=0x7f060009;
-        public static final int reminder_text=0x7f06000a;
-        public static final int seconds_default=0x7f06000b;
-        public static final int serviceLabel=0x7f06000c;
-        public static final int sleep_error=0x7f06000d;
-        public static final int snooze=0x7f06000e;
-        public static final int snoozing=0x7f06000f;
-        public static final int timer_finished=0x7f060010;
-        public static final int timer_start=0x7f060011;
-        public static final int title_activity_main=0x7f060012;
+        public static final int app_description=0x7f070000;
+        public static final int app_name=0x7f070001;
+        public static final int dismiss=0x7f070002;
+        public static final int done_snoozing=0x7f070003;
+        public static final int label=0x7f070004;
+        public static final int menu_settings=0x7f070005;
+        public static final int notification=0x7f070006;
+        public static final int ping=0x7f070007;
+        public static final int ping_text=0x7f070008;
+        public static final int pref_default_display_name=0x7f070009;
+        public static final int pref_description_social_recommendations=0x7f07000a;
+        public static final int pref_header_data_sync=0x7f07000b;
+        public static final int pref_header_general=0x7f07000c;
+        public static final int pref_header_notifications=0x7f07000d;
+        public static final int pref_ringtone_silent=0x7f07000e;
+        public static final int pref_title_add_friends_to_messages=0x7f07000f;
+        public static final int pref_title_display_name=0x7f070010;
+        public static final int pref_title_new_message_notifications=0x7f070011;
+        public static final int pref_title_notifications_enable=0x7f070012;
+        public static final int pref_title_ringtone=0x7f070013;
+        public static final int pref_title_social_recommendations=0x7f070014;
+        public static final int pref_title_sync_frequency=0x7f070015;
+        public static final int pref_title_system_sync_settings=0x7f070016;
+        public static final int pref_title_vibrate=0x7f070017;
+        public static final int reminder_label=0x7f070018;
+        public static final int reminder_text=0x7f070019;
+        public static final int seconds_default=0x7f07001a;
+        public static final int serviceLabel=0x7f07001b;
+        public static final int sleep_error=0x7f07001c;
+        public static final int snooze=0x7f07001d;
+        public static final int snoozing=0x7f07001e;
+        public static final int timer_finished=0x7f07001f;
+        public static final int timer_start=0x7f070020;
+        public static final int title_activity_main=0x7f070021;
+        public static final int title_activity_settings=0x7f070022;
     }
     public static final class style {
-        public static final int AppTheme=0x7f070000;
-        public static final int NotificationText=0x7f070001;
-        public static final int NotificationTitle=0x7f070002;
+        public static final int AppTheme=0x7f080000;
+        public static final int NotificationText=0x7f080001;
+        public static final int NotificationTitle=0x7f080002;
+    }
+    public static final class xml {
+        public static final int pref_data_sync=0x7f040000;
+        public static final int pref_general=0x7f040001;
+        public static final int pref_headers=0x7f040002;
+        public static final int pref_notification=0x7f040003;
     }
 }
