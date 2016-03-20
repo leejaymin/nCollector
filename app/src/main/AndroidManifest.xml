@@ -15,7 +15,7 @@
   limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.pingme"
+    package="com.eslab.passme"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -36,7 +36,7 @@
         android:label="@string/app_name" >
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.eslab.passme.MainActivity"
             android:label="@string/label" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,12 +46,12 @@
         </activity>
 
         <service
-            android:name=".PingService"
+            android:name="com.eslab.passme.PingService"
             android:enabled="true"
             android:label="PingServiceLabel" >
         </service>
         <service
-            android:name=".NLService"
+            android:name="com.eslab.passme.NLService"
             android:label="@string/serviceLabel"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
             <intent-filter>
@@ -60,17 +60,17 @@
         </service>
 
         <activity
-            android:name=".ResultActivity"
+            android:name="com.eslab.passme.ResultActivity"
             android:excludeFromRecents="true"
             android:label="Take Action"
             android:launchMode="singleTask"
             android:taskAffinity="" />
         <activity
-            android:name=".AppChoiceView"
+            android:name="com.eslab.passme.AppChoiceView"
             android:label="AppList" >
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.eslab.passme.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
     </application>
