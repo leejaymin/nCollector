@@ -23,7 +23,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="notification">Ping Notification</string>
-    <string name="label">Ping Me</string>
+    <string name="label">nCollector</string>
     <string name="serviceLabel">NotificationService</string>
 
     <!--  Buttons -->
