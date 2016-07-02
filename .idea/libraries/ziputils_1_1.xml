@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ziputils-1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SensorDataManager/libs/ziputils-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

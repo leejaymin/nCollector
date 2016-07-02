@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PingMe.iml" filepath="$PROJECT_DIR$/PingMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SensorDataManager/SensorDataManager.iml" filepath="$PROJECT_DIR$/SensorDataManager/SensorDataManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SensorManager/SensorManager.iml" filepath="$PROJECT_DIR$/SensorManager/SensorManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

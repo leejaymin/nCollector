@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(parent.getContext(),
-                        "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(),
+                        "OnItemSelectedListener125: " + parent.getItemAtPosition(position).toString(),
                         Toast.LENGTH_SHORT).show();
                 if (parent.getItemAtPosition(position) == "MAX")
                     notificationPriority = NotificationCompat.PRIORITY_MIN;
