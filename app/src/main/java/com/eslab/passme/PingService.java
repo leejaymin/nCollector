@@ -46,6 +46,7 @@ public class PingService extends IntentService {
         super("com.example.android.pingme");
     }
 
+
     @Override
     protected void onHandleIntent(Intent intent) {
         // The reminder message the user set.
