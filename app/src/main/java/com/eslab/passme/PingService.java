@@ -32,6 +32,7 @@ public class PingService extends IntentService {
 
     private NotificationManager mNotificationManager;
     private String mMessage;
+    private int mNumberOfNotifications;
     private int mMillis;
     private int mPrority;
     NotificationCompat.Builder builder;
@@ -57,24 +58,29 @@ public class PingService extends IntentService {
                 NotificationCompat.PRIORITY_DEFAULT);
         NotificationManager nm = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
+        // The number of notifications is extracted from user set.
+        mNumberOfNotifications = intent.getIntExtra(CommonConstants.NUMBER_OF_NOTIFICATIONS,1);
+        Log.d(CommonConstants.DEBUG_TAG,""+mNumberOfNotifications);
 
-        String action = intent.getAction();
-        // This section handles the 3 possible actions:
-        // ping, snooze, and dismiss.
-        if(action.equals(CommonConstants.ACTION_PING)) {
-            issueNotification(intent, mMessage);
-        } else if (action.equals(CommonConstants.ACTION_SNOOZE)) {
-            nm.cancel(CommonConstants.NOTIFICATION_ID);
-            Log.d(CommonConstants.DEBUG_TAG, getString(R.string.snoozing));
-            // Sets a snooze-specific "done snoozing" message.
-            issueNotification(intent, getString(R.string.done_snoozing));
+        for (int i = 1; i<=mNumberOfNotifications; i++){
+            String action = intent.getAction();
+            // This section handles the 3 possible actions:
+            // ping, snooze, and dismiss.
+            if(action.equals(CommonConstants.ACTION_PING)) {
+                issueNotification(intent, mMessage, i);
+            } else if (action.equals(CommonConstants.ACTION_SNOOZE)) {
+                nm.cancel(CommonConstants.NOTIFICATION_ID+i);
+                Log.d(CommonConstants.DEBUG_TAG, getString(R.string.snoozing));
+                // Sets a snooze-specific "done snoozing" message.
+                issueNotification(intent, getString(R.string.done_snoozing), i);
 
-        } else if (action.equals(CommonConstants.ACTION_DISMISS)) {
-            nm.cancel(CommonConstants.NOTIFICATION_ID);
+            } else if (action.equals(CommonConstants.ACTION_DISMISS)) {
+                nm.cancel(CommonConstants.NOTIFICATION_ID+i);
+            }
         }
     }
 
-    private void issueNotification(Intent intent, String msg) {
+    private void issueNotification(Intent intent, String msg, int offsetNotificationID) {
         mNotificationManager = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
 
@@ -136,18 +142,18 @@ public class PingService extends IntentService {
          );
 
          builder.setContentIntent(resultPendingIntent);
-         startTimer(mMillis);
+         startTimer(mMillis,offsetNotificationID);
     }
 
-    private void issueNotification(NotificationCompat.Builder builder) {
+    private void issueNotification(NotificationCompat.Builder builder,int offsetNotificationID) {
         mNotificationManager = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
         // Including the notification ID allows you to update the notification later on.
-        mNotificationManager.notify(CommonConstants.NOTIFICATION_ID, builder.build());
+        mNotificationManager.notify(CommonConstants.NOTIFICATION_ID+offsetNotificationID, builder.build());
     }
 
  // Starts the timer according to the number of seconds the user specified.
-    private void startTimer(int millis) {
+    private void startTimer(int millis, int offsetNotificationID) {
         Log.d(CommonConstants.DEBUG_TAG, getString(R.string.timer_start));
         powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"WatingForNotiGeneration");
@@ -162,6 +168,6 @@ public class PingService extends IntentService {
         Log.d(CommonConstants.DEBUG_TAG, getString(R.string.timer_finished));
         wakeLock.release();
         Log.d(CommonConstants.DEBUG_TAG, getString(R.string.wake_release));
-        issueNotification(builder);
+        issueNotification(builder, offsetNotificationID);
     }
 }

@@ -31,6 +31,7 @@ public final class CommonConstants {
     // to 20 seconds.
     public static final int SNOOZE_DURATION = 20000;
     public static final int DEFAULT_TIMER_DURATION = 10000;
+    public static final String NUMBER_OF_NOTIFICATIONS = "com.example.android.pingme.NUMBER_OF_NOTIFICATIONS";
     public static final String ACTION_SNOOZE = "com.example.android.pingme.ACTION_SNOOZE";
     public static final String ACTION_DISMISS = "com.example.android.pingme.ACTION_DISMISS";
     public static final String ACTION_CONNECTED = "com.example.android.pingme.ACTION_CONNECTED";

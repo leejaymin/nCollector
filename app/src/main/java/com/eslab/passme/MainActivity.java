@@ -130,7 +130,9 @@ public class MainActivity extends Activity {
             //String priority = spinner.
             mServiceIntent.putExtra(CommonConstants.NOTIFICATION_PRIORITY, notificationPriority);
             mServiceIntent.putExtra(CommonConstants.EXTRA_MESSAGE, message);
+            mServiceIntent.putExtra(CommonConstants.NUMBER_OF_NOTIFICATIONS,2);
             mServiceIntent.setAction(CommonConstants.ACTION_PING);
+
             Toast.makeText(this, R.string.timer_start, Toast.LENGTH_SHORT).show();
 
             // The number of seconds the timer should run.
