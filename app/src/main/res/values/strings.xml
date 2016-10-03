@@ -38,6 +38,7 @@
     <string name="seconds_default">10</string>
     <string name="reminder_label">Reminder Text</string>
     <string name="reminder_text">Don\'t forget!</string>
+    <string name="number_of_notifications"># of notifications</string>
 
     <!--  Logging -->
 

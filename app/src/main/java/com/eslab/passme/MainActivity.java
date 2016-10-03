@@ -126,11 +126,14 @@ public class MainActivity extends Activity {
         else if(v.getId() == R.id.ping_button) {
             // Gets the reminder text the user entered.
             EditText msgText = (EditText) findViewById(R.id.edit_reminder);
+            EditText msgNumOfNotis = (EditText) findViewById(R.id.edit_numberOfNotifications);
             String message = msgText.getText().toString();
+            int numOfNotis = Integer.parseInt(msgNumOfNotis.getText().toString());
+
             //String priority = spinner.
             mServiceIntent.putExtra(CommonConstants.NOTIFICATION_PRIORITY, notificationPriority);
             mServiceIntent.putExtra(CommonConstants.EXTRA_MESSAGE, message);
-            mServiceIntent.putExtra(CommonConstants.NUMBER_OF_NOTIFICATIONS,2);
+            mServiceIntent.putExtra(CommonConstants.NUMBER_OF_NOTIFICATIONS,numOfNotis);
             mServiceIntent.setAction(CommonConstants.ACTION_PING);
 
             Toast.makeText(this, R.string.timer_start, Toast.LENGTH_SHORT).show();
